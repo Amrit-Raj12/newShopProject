@@ -1,0 +1,30 @@
+.logn_box{
+    width: 50%;
+    background: url(https://i.pinimg.com/originals/75/01/e5/7501e59f8ef27c70e8725df86689d59d.jpg);
+    background-size: cover;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.lgn_btn{
+    position: relative;
+    left: 35%;
+    top: 10px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px){
+    .logn_box{
+        width: 110%;
+        background: #F3E4DC;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+    .lgn_btn_row{
+        width: 100% !important;
+        margin-left: -10px !important;
+    }
+    .rgr_btn{
+        width: 100%;
+    }
+}
