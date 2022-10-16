@@ -19,16 +19,16 @@ const Footer = () => {
             <div className="services">
               <h4>Company</h4>
               <p>
-                <a href="#">Shipping</a>
+                <a href="/">Shipping</a>
               </p>
               <p>
-                <a href="#">Return Policy</a>
+                <a href="/">Return Policy</a>
               </p>
               <p>
-                <a href="#">Work With Us</a>
+                <a href="/">Work With Us</a>
               </p>
               <p>
-                <a href="#">Terms & Conditions</a>
+                <a href="/">Terms & Conditions</a>
               </p>
             </div>
             <div style={{ marginLeft: "15px" }} className="social-media">

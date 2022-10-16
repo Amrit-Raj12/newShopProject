@@ -26,7 +26,7 @@ const Header = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-          <LinkContainer style={{color:"#f0f0f0"}} to="/product" >
+          <LinkContainer style={{color:"#f0f0f0"}} to="/products" >
               <Nav.Link> Products</Nav.Link>
             </LinkContainer>
             <LinkContainer style={{color:"#f0f0f0"}} to="/collection" >
