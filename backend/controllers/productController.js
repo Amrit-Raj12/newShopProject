@@ -17,4 +17,27 @@ const getProductsById = asyncHandler(async (req, res)=>{
     } 
 })
 
-export { getProducts, getProductsById }
+const addProduct = asyncHandler(async (req, res)=>{
+    try{
+        const product = new Product(req.body);
+        await product.save();
+        res.status(201).send(product);
+    }catch(e){
+        res.status(400).send(e.message);
+    }
+})
+
+const searchProduct = asyncHandler(async (req, res) => {
+    try{
+        const products = await Product.find({
+            $text : {
+                $search : 'Green', $language: 'en'
+            }
+        });
+        res.status(201).send(products)
+    }catch(e){
+        res.status(400).send(e.message);
+    }
+})
+
+export { getProducts, getProductsById, addProduct , searchProduct}
