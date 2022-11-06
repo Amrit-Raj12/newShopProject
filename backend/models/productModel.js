@@ -25,7 +25,8 @@ const productSchema = mongoose.Schema({
     },
     name:{
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     image:{
         type: String,
@@ -37,7 +38,8 @@ const productSchema = mongoose.Schema({
     },
     category:{
         type: String,
-        required: true,
+        enum: ['Bedroom', 'Kitchen', 'Dining', 'Office', 'Living'],
+        required: true
     },
     description:{
         type: String,
@@ -59,6 +61,12 @@ const productSchema = mongoose.Schema({
         required: true,
         default:0,
     },
+    size:{
+        type: String,
+        enum: ['Small', 'Regular', 'Large', 'Grande'],
+        required: true,
+        default: 'Regular',
+    },
     countInStock:{
         type: Number,
         required: true,
@@ -67,6 +75,8 @@ const productSchema = mongoose.Schema({
 }, {
     timeStamps:true
 })
+
+productSchema.index({name: 'text', category: 'text', size:'text', price:1})
 
 const Product = mongoose.model('Product', productSchema)
 

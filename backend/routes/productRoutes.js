@@ -7,10 +7,13 @@ import { searchProduct, addProduct, getProducts, getProductsById } from '../cont
 
 router.route('/').get(getProducts)
 
-router.route('/:id').get(getProductsById) 
+router.route('/:id').get(getProductsById)
 
-router.route('/').post(adminAccess, addProduct) 
+router.route('/').post(adminAccess, addProduct)
 
-router.route('/find').get(searchProduct);
-
+router.route('/find/:title&:category&:size&:price').post(searchProduct);
+/* router.route('/find/:title').post(searchProduct);
+router.route('/find/:title&:category').post(searchProduct);
+router.route('/find/:title&:category&:size&:price').post(searchProduct);
+ */
 export default router
