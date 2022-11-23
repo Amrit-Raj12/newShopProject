@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Image, ListGroup, Card, Button, FormControl } from 'react-bootstrap';
+import { Row, Col, ListGroup, Card, Button, FormControl } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { listProductsDetails } from '../actions/productActions';
+import ReactImageMagnify from 'react-image-magnify';
 
 
 
@@ -48,7 +49,25 @@ const ProductScreen = ({ history, match }) => {
         {loading?<Loader/>:error ? <Message variant='danger'>{error}</Message> : (
             <Row>
             <Col md={6}>
-                <Image src={product.image} alt={product.name} fluid />
+                {/* <Image src={product.image} alt={product.name} fluid /> */}
+                <ReactImageMagnify {...{
+            smallImage: {
+              alt: 'Wristwatch by Ted Baker London',
+            //   isFluidWidth: true,
+              src: product.image,
+              width: 300,
+              height: 400
+            //   srcSet: this.srcSet,
+            //   sizes: '(min-width: 800px) 33.5vw, (min-width: 415px) 50vw, 100vw',
+            },
+            largeImage: {
+              alt: '',
+              src: product.image,
+              width: 1200,
+              height: 1800
+            },
+            isHintEnabled: true
+          }}/>
             </Col>
             <Col md={3}>
                 <ListGroup variant="flush">
