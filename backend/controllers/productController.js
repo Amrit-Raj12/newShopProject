@@ -29,15 +29,46 @@ const addProduct = asyncHandler(async (req, res)=>{
 
 const searchProduct = asyncHandler(async (req, res) => {
     try{
-        const products = await Product.find({
-            $text : {
-                $search : 'Green', $language: 'en'
+        //console.log(Number(req.params.price));
+        const price = Number(req.params.price)
+
+        function getPrice(price){
+            if(price != 0 ){ 
+                return price
+            }else{ 
+                return Number.MAX_VALUE
             }
+        }
+        
+        function getTitle(title){
+            if(title == ' '){
+                return {}
+            }else{
+                return {$text : { $search : title, $language: 'en'}}
+            }
+        }
+        
+        const ifTitle = getTitle(req.params.title)
+        const final = getPrice(price)
+        console.log(ifTitle)
+        
+        const products = await Product.find({
+            $and: [
+                ifTitle,
+                {
+                    category: ((req.params.category==' ')?'Living':req.params.category),
+                    size: ((req.params.size==' ')?'Regular':req.params.size)
+                },
+                {
+                    price: { $lte: final }
+                }
+            ]
         });
         res.status(201).send(products)
+
     }catch(e){
         res.status(400).send(e.message);
     }
 })
 
-export { getProducts, getProductsById, addProduct , searchProduct}
+export { getProducts, getProductsById, addProduct, searchProduct}

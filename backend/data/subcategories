@@ -1,0 +1,90 @@
+const subcategories = {
+    Bedroom : [{
+        name: 'Bed'
+    },
+    {
+        name: 'Almiraah'
+    },
+    {
+        name: 'Window'
+    },
+    {
+        name: 'Door'
+    },
+    {
+        name: 'Desk'
+    },
+    {
+        name: 'Chair'
+    }],
+
+    Kitchen: [{
+        name: 'Door'
+    },
+    {
+        name: 'Window'
+    },
+    {
+        name: 'Cabinets'
+    },
+    {
+        name: 'Racks'
+    },
+    {
+        name: 'Pot Racks'
+    }],
+
+    Dining: [{
+        name: 'Dining Table'
+    },
+    {
+        name: 'Chair'
+    },
+    {
+        name: 'Sofa'
+    }],
+
+    Office: [{
+        name: 'Desk'
+    },
+    {
+        name: 'Executive Desk'
+    },
+    {
+        name: 'Chairs'
+    },
+    {
+        name: 'Computer Desk'
+    },
+    {
+        name: 'Filling Cabinets'
+    },
+    {
+        name: 'Doors'
+    },
+    {
+        name: 'Windows'
+    }],
+
+    Living: [{
+        name: 'Doors'
+    },
+    {
+        name: 'Windows'
+    },
+    {
+        name: 'Beds'
+    },
+    {
+        name: 'Sofas'
+    },
+    {
+        name: 'Tables'
+    },
+    {
+        name: 'Chairs'
+    }]
+
+}
+
+export default subcategories
